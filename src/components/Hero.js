@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 
 const Hero = () => {
     const [displayText, setDisplayText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
     const heroRef = useRef(null);
 
-    const phrases = [
+    const phrases = useMemo(() => [
         'Full Stack Developer',
         'UI/UX Designer',
         'Problem Solver',
         'Tech Enthusiast',
         'Web Developer'
-    ];
+    ], []);
     const [phraseIndex, setPhraseIndex] = useState(0);
     const typingSpeed = 100; // Speed for typing each character
     const deletingSpeed = 100; // Speed for deleting each character
