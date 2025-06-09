@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const contactRef = useRef(null);
+  const form = useRef();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,11 +20,26 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically handle form submission
-    console.log('Form submitted:', formData);
-    // Reset form after submission
-    setFormData({ name: '', email: '', message: '' });
-    alert('Message sent successfully!');
+    
+    emailjs
+      .sendForm(
+        'service_yefditg', 
+        'YOUR_TEMPLATE_ID', 
+        form.current,
+        {
+          publicKey: 'RWIy1_hF14__kWD-t', 
+        }
+      )
+      .then(
+        () => {
+          alert('Message sent successfully!');
+          setFormData({ name: '', email: '', message: '' });
+        },
+        (error) => {
+          console.log('Failed to send message:', error.text);
+          alert('Failed to send message. Please try again.');
+        }
+      );
   };
 
   useEffect(() => {
@@ -69,11 +86,6 @@ const Contact = () => {
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="hexagon-icon" />
             </div>
           </a>
-          <a href="mailto:kalash26020@gmail.com" className="social-link">
-            <div className="hexagon">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Email" className="hexagon-icon" />
-            </div>
-          </a>
           <a href="https://www.linkedin.com/in/kalash-singh-940961200/" target="_blank" rel="noopener noreferrer" className="social-link">
             <div className="hexagon">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" className="hexagon-icon" />
@@ -83,13 +95,13 @@ const Contact = () => {
         <div>
           <p className="contact-subtitle">Or send me a message:</p>
         </div>
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form className="contact-form" ref={form} onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
                 type="text"
                 id="name"
-                name="name"
+                name="user_name"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -102,7 +114,7 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
-                name="email"
+                name="user_email"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -113,17 +125,16 @@ const Contact = () => {
             <div className="form-group">
               <label htmlFor="message">Message</label>
               <textarea
-                id="message"
                 name="message"
+                id="message"
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="form-textarea"
-                rows="5"
-              ></textarea>
+                className="form-input"
+              />
             </div>
 
-            <button type="submit" className="form-submit-btn">SEND</button>
+            <button type="submit" className="form-input">Send Message</button>
           </form>
         </div>
       </div>

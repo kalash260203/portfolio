@@ -41,8 +41,8 @@ const Projects = () => {
             <li>Simple, user-friendly design with message history display and input functionality.</li>
           </ul>
           <div className="project-links">
-            <a href="https://github.com/kalash260203/Chatbot" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://kalash260203.github.io/Chatbot/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+            <a href="https://github.com/kalash260203/convo-bot" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://convo-bot.netlify.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>
           </div>
         </div>
 
@@ -55,8 +55,8 @@ const Projects = () => {
             <li>User-friendly interface with dark/light mode and input/output capabilities for code execution.</li>
           </ul>
           <div className="project-links">
-            <a href="https://github.com/kalash260203/code-runner" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://kalash260203.github.io/code-runner/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+            <a href="https://github.com/kalash260203/code-pilot" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://code-piolet.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
           </div>
         </div>
 
@@ -78,6 +78,10 @@ const Projects = () => {
             <li>Developed a Dynamic Movie Recommendation Engine.</li>
             <li>Optimized Recommendation Algorithm for Enhanced Accuracy.</li>
           </ul>
+          <div className="project-links">
+            <a href="https://github.com/kalash260203/movie-recommendations-system" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://findmyfilms.netlify.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          </div>
         </div>
       </div>
     </section>
