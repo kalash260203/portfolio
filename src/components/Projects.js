@@ -49,7 +49,7 @@ const Projects = () => {
 
         <div className="project-card">
           <h3>ConvoBot</h3>
-          <p className="project-tech">HTML5 • CSS3 • JavaScript • Web APIs</p>
+          <p className="project-tech">Next.js</p>
           <p className="project-duration">April 2024 - June 2024</p>
           <ul>
             <li>A web-based chat interface for interaction with an AI assistant called TalkBot.</li>
