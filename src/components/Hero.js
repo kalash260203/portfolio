@@ -7,7 +7,6 @@ const Hero = () => {
 
     const phrases = useMemo(() => [
         'Full Stack Developer',
-        'UI/UX Designer',
         'Problem Solver',
         'Tech Enthusiast',
         'Web Developer'
