@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
+// Initialize EmailJS with your public key
+emailjs.init('RWIy1_hF14__kWD-t');
+
 const Contact = () => {
   const contactRef = useRef(null);
   const form = useRef();
@@ -18,28 +21,42 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    emailjs
-      .sendForm(
+    // Validate form data
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      alert('Please fill in all fields');
+      return;
+    }
+    
+    console.log('Form submission started...');
+    console.log('Form data:', formData);
+    
+    try {
+      // Using sendForm method which is simpler
+      const response = await emailjs.sendForm(
         'service_yefditg', 
-        'YOUR_TEMPLATE_ID', 
+        'template_ifa2gs7', 
         form.current,
-        {
-          publicKey: 'RWIy1_hF14__kWD-t', 
-        }
-      )
-      .then(
-        () => {
-          alert('Message sent successfully!');
-          setFormData({ name: '', email: '', message: '' });
-        },
-        (error) => {
-          console.log('Failed to send message:', error.text);
-          alert('Failed to send message. Please try again.');
-        }
+        'RWIy1_hF14__kWD-t'
       );
+      
+      console.log('SUCCESS!', response.status, response.text);
+      alert('Message sent successfully! Thank you for reaching out.');
+      setFormData({ name: '', email: '', message: '' });
+      
+    } catch (error) {
+      console.error('FAILED...', error);
+      console.error('Error details:', error.text || error.message);
+      
+      // More specific error messages
+      if (error.text) {
+        alert(`Failed to send message: ${error.text}. Please check your template ID and try again.`);
+      } else {
+        alert('Failed to send message. Please check your EmailJS configuration and try again.');
+      }
+    }
   };
 
   useEffect(() => {
@@ -101,7 +118,7 @@ const Contact = () => {
               <input
                 type="text"
                 id="name"
-                name="user_name"
+                name="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -114,7 +131,7 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
-                name="user_email"
+                name="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
