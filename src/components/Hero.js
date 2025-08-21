@@ -5,7 +5,7 @@ const Hero = () => {
     const [isDeleting, setIsDeleting] = useState(false);
     const heroRef = useRef(null);
 
-    const phrases = useMemo(() => [
+        const phrases = useMemo(() => [
         'Full Stack Developer',
         'Problem Solver',
         'Tech Enthusiast',

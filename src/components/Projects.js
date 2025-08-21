@@ -73,18 +73,18 @@ const Projects = () => {
           </ul>
           <div className="project-links">
             <a href="https://github.com/kalash260203/code-pilot" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://code-piolet.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
+            <a href="https://code-piolet.netlify.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>
           </div>
         </div>
 
         <div className="project-card">
           <h3>Movie Recommendation System</h3>
-          <p className="project-tech">Python • Machine Learning • Pandas • NumPy • Scikit-learn</p>
+          <p className="project-tech">MongoDB • Express.js • React • Node.js • Socket.io</p>
           <p className="project-duration">July 2023 - November 2023</p>
           <ul>
-            <li>Developed a Dynamic Movie Recommendation Engine.</li>
-            <li>Optimized Recommendation Algorithm for Enhanced Accuracy.</li>
-            <li>Implemented collaborative filtering and content-based algorithms using scikit-learn and pandas.</li>
+            <li>Developed a Dynamic Movie Recommendation Engine using MERN stack architecture.</li>
+            <li>Built with MongoDB for data storage, Express.js for backend API, React for frontend, and Node.js runtime.</li>
+            <li>Implemented collaborative filtering and content-based algorithms with real-time updates using Socket.io.</li>
           </ul>
           <div className="project-links">
             <a href="https://github.com/kalash260203/movie-recommendations-system" target="_blank" rel="noopener noreferrer">GitHub</a>
