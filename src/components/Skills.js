@@ -33,8 +33,13 @@ const Skills = () => {
       { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
       { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
       { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
-      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-      { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" }
+      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" }
+    ],
+    technologies: [
+      { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+      { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" }
     ],
     tools: [
       { name: "Ubuntu", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" },
@@ -63,6 +68,21 @@ const Skills = () => {
 
           <div className="hexagon-grid">
             {skillsData.programming.map((skill, index) => (
+              <div key={index} className="hexagon-item">
+                <div className="hexagon">
+                  <img src={skill.icon} alt={skill.name} className="hexagon-icon" />
+                </div>
+                <div className="hexagon-tooltip">{skill.name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="skills-category">
+          <div className="category-tag">&lt;technologies&gt;</div>
+
+          <div className="hexagon-grid">
+            {skillsData.technologies.map((skill, index) => (
               <div key={index} className="hexagon-item">
                 <div className="hexagon">
                   <img src={skill.icon} alt={skill.name} className="hexagon-icon" />
